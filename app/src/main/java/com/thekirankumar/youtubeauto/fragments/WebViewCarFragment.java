@@ -141,7 +141,7 @@ public class WebViewCarFragment extends CarFragment implements MainCarActivity.A
     private boolean isNightMode = false;
     private boolean fullScreenRequested;
     private boolean clickFirstVideoAfterPageLoad;
-    private boolean warningAccepted;
+    private final boolean warningAccepted = true;
     private AspectRatio currentAspectRatio;
     private Handler handler;
     private SharedPreferences sharedPrefs;
@@ -154,7 +154,7 @@ public class WebViewCarFragment extends CarFragment implements MainCarActivity.A
     };
     private Button aspectButton;
     private int playerState = PlaybackState.STATE_PAUSED;
-    private boolean warningScreenOpen;
+    private boolean warningScreenOpen = false;
     private final CarSensorManager.OnSensorChangedListener mSensorsListener = new CarSensorManager.OnSensorChangedListener() {
         @Override
         public void onSensorChanged(CarSensorManager sensorManager, CarSensorEvent ev) {
@@ -1142,7 +1142,6 @@ public class WebViewCarFragment extends CarFragment implements MainCarActivity.A
 
     @Override
     public void onReadyToExitSafetyInstructions(SafetyWarningFragment warningFragment) {
-        warningAccepted = true;
         hideWarningScreen();
     }
 
