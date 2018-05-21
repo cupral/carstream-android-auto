@@ -44,8 +44,9 @@ public class Bookmark extends RealmObject {
         return preventDelete;
     }
 
-    public void setPreventDelete(boolean preventDelete) {
+    public Bookmark setPreventDelete(boolean preventDelete) {
         this.preventDelete = preventDelete;
+        return this;
     }
 
     public int getFaviconResource() {

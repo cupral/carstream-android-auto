@@ -16,8 +16,6 @@ import com.thekirankumar.youtubeauto.utils.AspectRatioFrameLayout;
 
 import java.util.ArrayList;
 
-import io.realm.RealmResults;
-
 /**
  * Created by kiran.kumar on 24/01/18.
  */
@@ -143,6 +141,7 @@ public class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapter.Book
         private final ImageView thumbnail;
         private final ImageView favicon;
         private final ImageView delete;
+        private final ImageView modify;
 
         public BookmarkViewHolder(Context context, ViewGroup parent) {
             super(((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.bookmark_layout, parent, false));
@@ -153,6 +152,7 @@ public class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapter.Book
             thumbnail = itemView.findViewById(R.id.bookmark_thumbnail);
             favicon = itemView.findViewById(R.id.bookmark_favicon);
             delete = itemView.findViewById(R.id.bookmark_delete);
+            modify = itemView.findViewById(R.id.bookmark_modify);
         }
 
         public void setBookmark(Bookmark bookmark) {
@@ -187,8 +187,10 @@ public class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapter.Book
         public void setDeleteMode(boolean deleteMode) {
             if (deleteMode) {
                 delete.setVisibility(View.VISIBLE);
+                modify.setVisibility(View.VISIBLE);
             } else {
-                delete.setVisibility(View.GONE);
+                delete.setVisibility(View.VISIBLE);
+                modify.setVisibility(View.VISIBLE);
             }
         }
     }

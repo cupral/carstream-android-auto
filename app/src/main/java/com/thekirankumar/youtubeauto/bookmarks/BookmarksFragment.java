@@ -128,8 +128,8 @@ public class BookmarksFragment extends Fragment implements BookmarksClickCallbac
 
     private ArrayList<Bookmark> getPreburntBookmarks() {
         final ArrayList<Bookmark> bookmarks = new ArrayList<>();
-        bookmarks.add(new Bookmark("YouTube", R.drawable.youtube_favicon, "https://youtube.com", R.drawable.youtube_bookmark));
-        bookmarks.add(new Bookmark("YouTube TV", R.drawable.youtube_favicon, "https://youtube.com/tv", R.drawable.youtube_bookmark));
+        bookmarks.add(new Bookmark("YouTube", R.drawable.youtube_favicon, "https://youtube.com", R.drawable.youtube_bookmark).setPreventDelete(false));
+        bookmarks.add(new Bookmark("YouTube TV", R.drawable.youtube_favicon, "https://youtube.com/tv", R.drawable.youtube_bookmark).setPreventDelete(false));
         String[] storageDirectories = MemoryStorage.getStorageDirectories(getContext());
         String internalSdCard = MemoryStorage.getSdCardPath();
         for (String storageDirectory : storageDirectories) {
@@ -142,7 +142,7 @@ public class BookmarksFragment extends Fragment implements BookmarksClickCallbac
                 bookmarks.add(new Bookmark(title, 0, "file://" + storageDirectory, R.drawable.external_storage));
             }
         }
-        bookmarks.add(new Bookmark("Plex.tv", 0, "http://app.plex.tv", R.drawable.plex));
+        bookmarks.add(new Bookmark("Plex.tv", 0, "http://app.plex.tv", R.drawable.plex).setPreventDelete(false));
         return bookmarks;
     }
 
